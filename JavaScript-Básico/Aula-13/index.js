@@ -17,4 +17,3 @@ console.log(umaString.split(' '));
 console.log(umaString.toLowerCase());
 
 console.log(umaString.toUpperCase());
-
