@@ -1,0 +1,18 @@
+console.log(10 > 5); // (True confirma que 10 é maior que 5)
+console.log(10 >= 8); // (True confirma que 10 é maior ou igual que 8)
+console.log(10 >= 11); // (False pois 11 é maior que e diferente de 10)
+console.log(10 < 11); // (True pois 10 é menor que 11)
+console.log(10 <= 10); // (True pois 10 é igual a 10)
+console.log(10 <= 9); // (False pois 10 é maior e diferente que 9)
+
+console.log(10 == 10); //(True pois 10 é igual a 10)
+console.log(10 == 11); //(False pois 10 é diferente de 11)
+console.log('10' == 10); //(True pois compara o 10 sem comparar o tipo de dado)
+console.log('10' === 10); //(False pois compara o 10 e o tipo de dado)
+
+console.log(10 != 11); //(True pois 10 é diferente que 11)
+console.log(10 != 10); //(False pois 10 é igual a 10)
+console.log(10 !== 11); //(True pois 10 é diferente que 11)
+console.log(10 !== 10); //(False pois 10 é igual a 10)
+console.log(10 != '11'); //(True pois 10 é diferente a 11, mesmo sendo dados diferentes)
+console.log(10 !== '10'); //(True pois são diferentes tipos de dados)
