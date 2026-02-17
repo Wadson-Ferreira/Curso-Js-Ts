@@ -1,9 +1,4 @@
-/* const dataArray = [
-    { tag: 'p', text: 'Frase 1' },
-    { tag: 'div', text: 'Frase 2' },
-    { tag: 'footer', text: 'Frase 3' },
-    { tag: 'section', text: 'Frase 4' },
-]; */
+/*
 function dataArray() {
     const dataArray = [
     { tag: 'p', text: 'Frase 1' },
@@ -56,3 +51,23 @@ function init() {
 }
 
 init();
+*/
+
+const elementos = [
+    { tag: 'p', texto: 'Frase 1' },
+    { tag: 'div', texto: 'Frase 2' },
+    { tag: 'footer', texto: 'Frase 3' },
+    { tag: 'section', texto: 'Frase 4' },
+]; 
+
+const container = document.querySelector('.container');
+const div = document.createElement('div');
+
+for (let i = 0; i < elementos.length; i++){
+    let { tag, texto } = elementos[i];
+    let tagCriada = document.createElement(tag);
+    tagCriada.innerText = texto;
+    div.appendChild(tagCriada);
+}
+
+container.appendChild(div);
