@@ -5,9 +5,16 @@
 }
  */
 
-function soma(x, y) {
+/* function soma(x, y) {
     if (typeof x !== 'number' || typeof y !== 'number') {
         throw ('x e y precisa ser números.');
+    }
+    return x + y;
+} */
+
+function soma(x, y) {
+    if (typeof x !== 'number' || typeof y !== 'number') {
+        throw new Error ('x e y precisa ser números.');
     }
     return x + y;
 }
