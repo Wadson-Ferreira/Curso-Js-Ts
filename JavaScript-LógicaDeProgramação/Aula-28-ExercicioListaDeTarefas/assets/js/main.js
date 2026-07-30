@@ -1,26 +1,65 @@
-const inputNovaTarefa = document.querySelector('.inputNovaTarefa');
-const btnAddTarefa = document.querySelector('.btnAddTarefa');
-const tarefas = document.querySelector('.tarefas');
+const inputNovaTarefa = document.querySelector(".inputNovaTarefa");
+const btnAddTarefa = document.querySelector(".btnAddTarefa");
+const tarefas = document.querySelector(".tarefas");
 
 function criaLi() {
-  const li = document.createElement('li');
+  const li = document.createElement("li");
   return li;
 }
 
-inputNovaTarefa.addEventListener('keypress', function (e) {
-  if (e.keyCode === 13) {
-    if (!inputNovaTarefa.value) return;
-    criaTarefa(inputNovaTarefa.value);
-  }
-})
+function limpaInput() {
+  inputNovaTarefa.value = "";
+  inputNovaTarefa.focus();
+}
+
+function criaBtnApagar(li) {
+  li.innerText += ' ';
+  const btnApagar = document.createElement('button');
+  btnApagar.innerText = 'Apagar';
+  btnApagar.setAttribute('class', 'apagar');
+  btnApagar.setAttribute('title', 'Apagar tarefa');
+  li.appendChild(btnApagar);
+}
+
+function salvarTarefas() {
+  const liTarefas = tarefas.querySelectorAll('li');
+  const listaDeTarefas = [];
+
+  for (let tarefa of liTarefas){
+    let tarefaTexto = tarefa.innerText;
+    tarefaTexto = tarefaTexto.replace('Apagar', '').trim();
+    listaDeTarefas.push(tarefaTexto);
+  }  
+  console.log(listaDeTarefas);
+  
+}
+
 
 function criaTarefa(textoInput) {
   const li = criaLi();
   li.innerText = textoInput;
   tarefas.appendChild(li);
+  limpaInput();
+  criaBtnApagar(li);
+  salvarTarefas();
 }
 
-btnAddTarefa.addEventListener('click', function () {
+inputNovaTarefa.addEventListener("keypress", function (e) {
+  if (e.keyCode === 13) {
+    if (!inputNovaTarefa.value) return;
+    criaTarefa(inputNovaTarefa.value);
+  }
+});
+
+btnAddTarefa.addEventListener("click", function () {
   if (!inputNovaTarefa.value) return;
   criaTarefa(inputNovaTarefa.value);
+});
+
+document.addEventListener('click', function (e) {
+  const el = e.target;
+  if(el.classList.contains('apagar')){
+    el.parentElement.remove();
+  }
 })
+
